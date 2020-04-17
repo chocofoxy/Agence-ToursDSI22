@@ -8,37 +8,20 @@
 {% set route = app.request.get('_route') %}
 
   <div class="w-full">
-    <div class="relative rounded-lg bg-white shadow-md">
-      <div class="relative rounded-lg block md:flex items-center bg-white" style="min-height: 4rem;">
-        <div class="relative w-full  h-full overflow-hidden ">
-          <div class="flex flex-row float-left text-lg">
-            <a href='/' class="mx-5 text-gray-500 cursor:pointer  py-2 px-4 rounded inline-flex items-center">
-              <span class="captalize">
-                <i class="w-4 h-4 ml-1 fas fa-home"></i>
+    <div class="relative rounded-lg bg-white shadow-md mb-5">
+      <div class="relative rounded-lg block md:flex items-center" style="min-height: 4rem;">
+        <div class="relative w-full  h-full overflow-hidden">
+          <div class="flex flex-row float-left text-lg ">
+            <a href="{{ path('index', [] , false) }}" class="mx-5 text-gray-800  font-semibold  cursor:pointer py-2 px-4 rounded inline-flex items-center">
+              <span class="text-base font-bold captalize">
+                ToursDSI22
               </span>
             </a>
-            <a href='/installation' class="mx-5 text-red-600 {{ 'installation' in route ? 'text-blue-500' }} cursor:pointer  py-2 px-4 rounded inline-flex items-center">
+            <a href="{{ path('destination', [] , false) }}" class="mx-5 text-green-600 {{ 'destination' in route ? 'text-blue-500' }} cursor:pointer  py-2 px-4 rounded inline-flex items-center">
               <span class="captalize">
-                <span class="text-xs font-bold">
-                  installation
+                <span class="text-base font-semibold">
+                  Destination
                 </span>
-                <i class="w-4 h-4 ml-1 fas fa-arrow-circle-down"></i>
-              </span>
-            </a>
-            <a href='/starting' class="mx-5 text-red-600 {{ 'starting' in route  ? 'text-blue-500' }} cursor:pointer  py-2 px-4 rounded inline-flex items-center">
-              <span class="captalize">
-                <span class="text-xs font-bold">
-                  Commencer
-                </span>
-                <i class="w-4 h-4 ml-1 fas fa-plus-circle"></i>
-              </span>
-            </a>
-            <a href='/demo' class="mx-5 text-red-600 {{ 'demo' in route  ? 'text-blue-500' }} cursor:pointer  py-2 px-4 rounded inline-flex items-center">
-              <span class="captalize">
-                <span class="text-xs font-bold">
-                  Application
-                </span>
-                <i class="w-4 h-4 ml-1 fas fa-globe-africa"></i>
               </span>
             </a>
           </div>
@@ -46,22 +29,14 @@
         <div class="w-full  md:w-full h-full bg-white rounded-lg">
 
           <div class="flex flex-row-reverse">
-            <a href='https://symfony.com/doc/current/index.html#gsc.tab=0' class="mx-5 text-black cursor:pointer  py-2 px-4 rounded inline-flex items-center">
-              <span class="captalize">
-                <span class="text-xs font-bold">
-                  Documentation
-                </span>
-                <i class="w-4 h-4 ml-1  fab fa-lg fa-symfony"></i>
-              </span>
-            </a>
             <!--<a class="text-gray-600 block focus:outline-none"> Tab 4 </a> -->
           </div>
 
         </div>
       </div>
-      <div class="relative block md:flex items-center bg-white pr-3 rounded-lg block">
-        {% block main %}{% endblock %}
-      </div>
+    </div>
+    <div class="relative block md:flex items-center bg-white pr-3 rounded-lg block">
+      {% block main %}{% endblock %}
     </div>
   </div>
 
