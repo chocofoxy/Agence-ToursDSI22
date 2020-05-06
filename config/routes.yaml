@@ -1,6 +1,6 @@
 index:
     path: /
-    controller: App\Controller\Page1Controller::index
+    controller: App\Controller\PagesController::index
 destination:
     path: /destination
-    controller: App\Controller\Page2Controller::index
+    controller: App\Controller\PagesController::destination

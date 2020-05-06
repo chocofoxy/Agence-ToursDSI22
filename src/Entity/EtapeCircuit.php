@@ -9,20 +9,16 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class EtapeCircuit
 {
-    /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
-    private $id;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Id()
+     * @ORM\ManyToOne(targetEntity="App\Entity\Ville", inversedBy="etapeCircuits",cascade={"all"})
      */
     private $code_ville_etape;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Id()
+     * @ORM\ManyToOne(targetEntity="App\Entity\Circuit", inversedBy="etapeCircuits",cascade={"all"})
      */
     private $code_circuit_etape;
 
@@ -36,29 +32,60 @@ class EtapeCircuit
      */
     private $ordre_etape;
 
-    public function getId(): ?int
+    public function getId(): ?Ville
     {
         return $this->id;
     }
 
-    public function getCodeVilleEtape(): ?int
+    public function setId(?Ville $id): self
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    public function getCodeVilleEtape(): ?Ville
     {
         return $this->code_ville_etape;
     }
 
-    public function setCodeVilleEtape(int $code_ville_etape): self
+    public function getcode_ville_etape(): ?Ville
+    {
+        return $this->code_ville_etape;
+    }
+
+    public function setCodeVilleEtape(?Ville $code_ville_etape): self
     {
         $this->code_ville_etape = $code_ville_etape;
 
         return $this;
     }
 
-    public function getCodeCircuitEtape(): ?int
+    public function setcode_ville_etape(?Ville $code_ville_etape): self
+    {
+        $this->code_ville_etape = $code_ville_etape;
+
+        return $this;
+    }
+
+    public function getcode_circuit_etape(): ?Circuit
     {
         return $this->code_circuit_etape;
     }
 
-    public function setCodeCircuitEtape(int $code_circuit_etape): self
+    public function setcode_circuit_etape(?Circuit $code_circuit_etape): self
+    {
+        $this->code_circuit_etape = $code_circuit_etape;
+
+        return $this;
+    }
+
+    public function getCodeCircuitEtape(): ?Circuit
+    {
+        return $this->code_circuit_etape;
+    }
+
+    public function setCodeCircuitEtape(?Circuit $code_circuit_etape): self
     {
         $this->code_circuit_etape = $code_circuit_etape;
 

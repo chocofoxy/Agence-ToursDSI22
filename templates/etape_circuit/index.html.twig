@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}EtapeCircuit index{% endblock %}
+
+{% block body %}
+    <h1>EtapeCircuit index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Duree_etape</th>
+                <th>Ordre_etape</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for etape_circuit in etape_circuits %}
+            <tr>
+                <td>{{ etape_circuit.dureeEtape }}</td>
+                <td>{{ etape_circuit.ordreEtape }}</td>
+                <td>
+                    <a href="{{ path('etape_circuit_show', {'code_ville_etape': etape_circuit.code_ville_etape}) }}">show</a>
+                    <a href="{{ path('etape_circuit_edit', {'code_ville_etape': etape_circuit.code_ville_etape}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('etape_circuit_new') }}">Create new</a>
+{% endblock %}
