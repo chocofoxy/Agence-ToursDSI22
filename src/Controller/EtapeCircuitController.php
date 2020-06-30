@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/etape/circuit")
+ * @Route("/etape")
  */
 class EtapeCircuitController extends AbstractController
 {

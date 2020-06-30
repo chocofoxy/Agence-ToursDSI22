@@ -24,19 +24,59 @@
                 </span>
               </span>
             </a>
+            <a href="{{ path('ville', [] , false) }}" class="mx-5 text-green-600 {{ 'ville' in route ? 'text-blue-500' }} cursor:pointer  py-2 px-4 rounded inline-flex items-center">
+              <span class="captalize">
+                <span class="text-base font-semibold">
+                  Ville
+                </span>
+              </span>
+            </a>
+            <a href="{{ path('circuit', [] , false) }}" class="mx-5 text-green-600 {{ 'circuit' in route ? 'text-blue-500' }} cursor:pointer  py-2 px-4 rounded inline-flex items-center">
+              <span class="captalize">
+                <span class="text-base font-semibold">
+                  Circuit
+                </span>
+              </span>
+            </a>
+            <a href="{{ path('etape', [] , false) }}" class="mx-5 text-green-600 {{ 'etape' in route ? 'text-blue-500' }} cursor:pointer  py-2 px-4 rounded inline-flex items-center">
+              <span class="captalize">
+                <span class="text-base font-semibold">
+                  Etape
+                </span>
+              </span>
+            </a>
           </div>
         </div>
         <div class="w-full  md:w-full h-full bg-white rounded-lg">
 
           <div class="flex flex-row-reverse">
             <!--<a class="text-gray-600 block focus:outline-none"> Tab 4 </a> -->
+             {% if app.user %}
+                    <a href="{{ path('app_logout') }}"> <button class="my-2  mx-2 font-semibold 
+                bg-red-500  text-white rounded-lg
+                px-5 py-1 block hover:text-white hover:bg-red-700" type="submit"> Logout
+              </button> </a>
+             {% else %}
+                    <a href="{{ path('app_login') }}"> <button class="my-2  mx-2 font-semibold 
+                bg-blue-500  text-white rounded-lg
+                px-5 py-1 block hover:text-white hover:bg-blue-700" type="submit"> Login
+              </button>  </a>
+              <a href="{{ path('app_new') }}"> <button class="my-2  mx-2 font-semibold 
+                bg-green-500  text-white rounded-lg
+                px-5 py-1 block hover:text-white hover:bg-green-700" type="submit"> Register
+              </button> </a>
+             {% endif %}
           </div>
 
         </div>
       </div>
     </div>
     <div class="relative block md:flex items-center bg-white pr-3 rounded-lg block">
-      {% block main %}{% endblock %}
+    <div class="m-4 border w-full p-5 rounded-lg">
+      {% block main %}
+
+      {% endblock %}
+    </div>
     </div>
   </div>
 

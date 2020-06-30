@@ -4,3 +4,12 @@ index:
 destination:
     path: /destination
     controller: App\Controller\PagesController::destination
+ville:
+    path: /ville
+    controller: App\Controller\VilleController::index
+etape:
+    path: /etape
+    controller: App\Controller\EtapeCircuitController::index
+circuit:
+    path: /circuit
+    controller: App\Controller\CircuitController::index

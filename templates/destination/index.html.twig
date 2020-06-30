@@ -1,26 +1,26 @@
-{% extends 'base.html.twig' %}
+{% extends 'layout.html.twig' %}
 
 {% block title %}Destination index{% endblock %}
 
-{% block body %}
-    <h1>Destination index</h1>
+{% block main %}
+    <h1> Les destinations : </h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Des_dest</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
+    <div class="px-3 py-4 flex justify-center">
+        <table class="w-full text-md bg-white shadow-md rounded mb-4">
+            <tbody>
+                <tr class="border-b">
+                    <th class="text-left p-3 px-5">Id</th>
+                    <th class="text-left p-3 px-5">Destination</th>
+                    <th class="text-left p-3 px-5">Actions</th>
+                    <th></th>
+                </tr>
         {% for destination in destinations %}
-            <tr>
-                <td>{{ destination.id }}</td>
-                <td>{{ destination.desDest }}</td>
-                <td>
-                    <a href="{{ path('destination_show', {'id': destination.id}) }}">show</a>
-                    <a href="{{ path('destination_edit', {'id': destination.id}) }}">edit</a>
+            <tr class="border-b hover:bg-orange-100 bg-gray-100">
+                <td class="p-3 px-5">{{ destination.id }}</td>
+                <td class="p-3 px-5">{{ destination.desDest }}</td>
+                <td class="p-3 px-5">
+                    <a class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline" href="{{ path('destination_show', {'id': destination.id}) }}">show</a>
+                    <a class="mr-3 text-sm bg-orange-500 hover:bg-orange-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline" href="{{ path('destination_edit', {'id': destination.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -29,7 +29,8 @@
             </tr>
         {% endfor %}
         </tbody>
-    </table>
-
-    <a href="{{ path('destination_new') }}">Create new</a>
+     </table>
+    </div>
+     <a class="float-right mr-3 text-sm bg-green-500 hover:bg-green-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline" href="{{ path('destination_new') }}">Create new</a>
+    
 {% endblock %}

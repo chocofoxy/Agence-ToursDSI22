@@ -1,26 +1,25 @@
-{% extends 'base.html.twig' %}
+{% extends 'layout.html.twig' %}
 
 {% block title %}EtapeCircuit index{% endblock %}
 
-{% block body %}
-    <h1>EtapeCircuit index</h1>
+{% block main %}
+    <h1>les etapes :</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Duree_etape</th>
-                <th>Ordre_etape</th>
-                <th>actions</th>
+    <div class="px-3 py-4 flex justify-center">
+        <table class="w-full text-md bg-white shadow-md rounded mb-4">
+            <tbody>
+                <tr class="border-b">
+                <th class="text-left p-3 px-5">Duree_etape</th>
+                <th class="text-left p-3 px-5">Ordre_etape</th>
+                <th class="text-left p-3 px-5">actions</th>
             </tr>
-        </thead>
-        <tbody>
         {% for etape_circuit in etape_circuits %}
-            <tr>
-                <td>{{ etape_circuit.dureeEtape }}</td>
-                <td>{{ etape_circuit.ordreEtape }}</td>
-                <td>
-                    <a href="{{ path('etape_circuit_show', {'code_ville_etape': etape_circuit.code_ville_etape}) }}">show</a>
-                    <a href="{{ path('etape_circuit_edit', {'code_ville_etape': etape_circuit.code_ville_etape}) }}">edit</a>
+            <tr class="border-b hover:bg-orange-100 bg-gray-100">
+                <td class="p-3 px-5">{{ etape_circuit.dureeEtape }}</td>
+                <td class="p-3 px-5">{{ etape_circuit.ordreEtape }}</td>
+                <td class="p-3 px-5">
+                    <a class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline" href="{{ path('etape_circuit_show', {'code_ville_etape': etape_circuit.code_ville_etape}) }}">show</a>
+                    <a class="mr-3 text-sm bg-orange-500 hover:bg-orange-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline" href="{{ path('etape_circuit_edit', {'code_ville_etape': etape_circuit.code_ville_etape}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -30,6 +29,6 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('etape_circuit_new') }}">Create new</a>
+    </div> 
+    <a class="float-right mr-3 text-sm bg-green-500 hover:bg-green-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline" href="{{ path('etape_circuit_new') }}">Create new</a>
 {% endblock %}
