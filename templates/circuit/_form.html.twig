@@ -1,4 +1,13 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    <table class="w-full text-md bg-white rounded my-4" >
+        <tbody>
+        {% for elem in form %}
+            <tr class="border-b">
+                    <th class="text-left p-3 px-5"> <span class="px-1 text-sm text-blue-500"> {{ form_label(elem) }} </span> </th>
+                    <td >{{form_widget(elem , {'attr': {'class': 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'}} ) }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <button class="mr-3 my-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline btn">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}

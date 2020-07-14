@@ -5,22 +5,22 @@
 {% block main %}
     <h1>Destination</h1>
 
-    <table class="table">
+    <table class="w-full text-md bg-white rounded mb-4">
         <tbody>
-            <tr>
-                <th>Id</th>
+            <tr class="border-b">
+                <th class="text-left p-3 px-5">Id</th>
                 <td>{{ destination.id }}</td>
             </tr>
-            <tr>
-                <th>Des_dest</th>
+            <tr class="border-b">
+                <th class="text-left p-3 px-5">Des_dest</th>
                 <td>{{ destination.desDest }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('destination_index') }}">back to list</a>
+    {{ include('circuit/_back.html.twig') }}
 
-    <a href="{{ path('destination_edit', {'id': destination.id}) }}">edit</a>
+    <a class="mr-3 text-sm bg-orange-500 hover:bg-orange-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline" href="{{ path('destination_edit', {'id': destination.id}) }}">edit</a>
 
     {{ include('destination/_delete_form.html.twig') }}
 {% endblock %}
